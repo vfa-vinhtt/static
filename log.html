@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Logger</title>
+    <script type="text/javascript">
+      window.addEventListener(
+        'message',
+        (event) => {
+          const text = JSON.stringify(event);
+          document
+            .querySelector('ol')
+            .insertAdjacentHTML('beforeend', `<li>[${new Date().toLocaleTimeString()}]-${event.data}</li>`);
+        },
+        false
+      );
+    </script>
+  </head>
+  <body>
+    <h1>Logger</h1>
+    <ol></ol>
+  </body>
+</html>
