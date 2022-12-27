@@ -46,10 +46,12 @@
     <script>
 
       const btn = document.querySelector('button');
-
+      
       // Share must be triggered by "user activation"
       btn.addEventListener('click', async () => {
-        const file = new File(data, 'ssx_rbw.png', { type: 'image/png' });
+        const file = new File(["foo"], "foo.txt", {
+            type: "text/plain",
+          });
         try {
           await navigator.share({
             title: 'Example File',
