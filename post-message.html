@@ -21,7 +21,7 @@
         document
             .querySelector('ol')
             .insertAdjacentHTML('beforeend', `<li>[ ${msg} ]</li>`);
-        window.parent.postMessage(msg);
+        window.parent.postMessage(msg, 'http://127.0.0.1:8887');
       }, 3000);
     </script>
   </head>
