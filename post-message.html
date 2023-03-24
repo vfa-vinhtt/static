@@ -8,18 +8,15 @@
     <script>
       setInterval(() => {
         const msg = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
-        console.log(msg);
+        document
+            .querySelector('ol')
+            .insertAdjacentHTML('beforeend', `<li>[${text}</li>`);
         window.postMessage(msg);
       }, 1000);
     </script>
   </head>
   <body>
-    https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
-    <pre>
-      setInterval(() => {
-        window.postMessage(`${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`)
-      }, 1000);
-  </pre
-    >
+    <h1>Logger Post Message</h1>
+    <ol></ol>
   </body>
 </html>
