@@ -11,7 +11,7 @@
         document
             .querySelector('ol')
             .insertAdjacentHTML('afterbegin', `<li>[ ${msg} ]</li>`);
-        window.postMessage(msg);
+        window.postMessage(msg, '*');
       }, 1000);
     </script>
   </head>
