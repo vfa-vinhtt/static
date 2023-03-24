@@ -4,19 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>postMessage to parent</title>
+    <style>
+      ol {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      ol li {
+        flex: 0 0 auto;
+      }
+    </style>
     <script>
       setInterval(() => {
         const msg = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
         document
             .querySelector('ol')
-            .insertAdjacentHTML('afterbegin', `<li>[ ${msg} ]</li>`);
-        window.parent.postMessage(msg, '*');
-      }, 1000);
+            .insertAdjacentHTML('beforeend', `<li>[ ${msg} ]</li>`);
+        window.parent.postMessage(msg);
+      }, 3000);
     </script>
   </head>
   <body>
-    <h1>Logger Post Message</h1>
+    <h1>Logger postMessage to parent</h1>
     <ol></ol>
   </body>
 </html>
