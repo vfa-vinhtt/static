@@ -1,0 +1,12 @@
+{
+  "data": [
+    {
+      "name": "newBP(dev)dashboard",
+      "link": "https://elb-dev.bp-manager.com/?utm_source=ogsc_global&utm_medium=app&utm_campaign=bpdiary&go_to_page=dashboard"
+    },
+    {
+      "name": "newBP(dev)calendar",
+      "link": "https://elb-dev.bp-manager.com/?utm_source=ogsc_global&utm_medium=app&utm_campaign=bpdiary&go_to_page=calendar"
+    }
+  ]
+}
