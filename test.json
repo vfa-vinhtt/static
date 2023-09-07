@@ -2,7 +2,7 @@
   "data": [
     {
       "name": "newBP(local)dashboard",
-      "link": "http://192.168.31.60:8080/?utm_source=ogsc_global&utm_medium=app&utm_campaign=bpdiary&go_to_page=calendar"
+      "link": "http://localhost:8080/?utm_source=ogsc_global&utm_medium=app&utm_campaign=bpdiary&go_to_page=calendar"
     },
     {
       "name": "newBP(dev)calendar",
