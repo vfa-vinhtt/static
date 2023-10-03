@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .game {
+            width: 80%;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 90vh;
+        }
+
+        .wrapp {
+            width: 26%;
+            height: 140px;
+            background-color: gray;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .duck {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: red;
+            top: 100%;
+            left: 0;
+            transition: 0.2s;
+        }
+
+        .wrapp.show .duck {
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Wynik: <span></span></h1>
+    <section class="game">
+        <div class="wrapp">
+            <div class="duck"></div>
+        </div>
+        <div class="wrapp">
+            <div class="duck"></div>
+        </div>
+        <div class="wrapp">
+            <div class="duck"></div>
+        </div>
+        <div class="wrapp">
+            <div class="duck"></div>
+        </div>
+        <div class="wrapp">
+            <div class="duck"></div>
+        </div>
+        <div class="wrapp">
+            <div class="duck"></div>
+        </div>
+        <div class="wrapp">
+            <div class="duck"></div>
+        </div>
+        <div class="wrapp">
+            <div class="duck"></div>
+        </div>
+        <div class="wrapp">
+            <div class="duck"></div>
+        </div>
+    </section>
+    <script>
+        const wraps = document.querySelectorAll(".wrapp");
+        const ducks = document.querySelectorAll(".duck");
+        const wynik = document.querySelector("span");
+        const dlugoscGry = 8000;
+
+        let punkty = 0;
+        let ostatniaKaczka;
+
+        function czasWyswietlania() {
+            let czas = Math.random();
+            if (czas > 0.8 || czas < 0.3) return czasWyswietlania()
+            return czas
+        }
+
+        function ktoraKaczka() {
+            const duckNumber = Math.floor(Math.random() * ducks.length);
+            if (ostatniaKaczka == duckNumber) {
+                return ktoraKaczka()
+            }
+            ostatniaKaczka = duckNumber;
+            return duckNumber;
+        }
+
+        setInterval(pojawianie, 1000);
+
+
+        function znikanie(numer) {
+            setTimeout(function(){wraps[numer].classList.remove("show")}, 1000);
+        }
+
+        function pojawianie() {
+            const kaczkaNumer = ktoraKaczka();
+            console.log(kaczkaNumer);
+            wraps[kaczkaNumer].classList.add("show");
+            znikanie(kaczkaNumer);
+
+        }
+
+
+
+
+
+        wraps.forEach(function(wrap) {
+            wrap.addEventListener("click", function() {
+                if(this.classList.contains("show")){
+
+                this.classList.remove("show");
+                punkty++;
+                wynik.textContent = punkty;
+                }
+            })
+        })
+        ducks.forEach(function(duck) {
+            duck.addEventListener("click", function() {
+
+            })
+        })
+    </script>
+</body>
+</html>
